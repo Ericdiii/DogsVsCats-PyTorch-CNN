@@ -24,6 +24,7 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 1. Set data directory
 2. **RUN** train.py
 3. **RUN** test.py
+![1](https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png) ![2](https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png)
 
 ## Source
 https://github.com/xbliuHNU/DogsVsCats</br>
