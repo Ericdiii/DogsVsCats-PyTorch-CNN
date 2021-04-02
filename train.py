@@ -15,15 +15,24 @@ nepoch = 10                         # Number of epoch
 
 
 def train():
-    datafile = DVCD('train', dataset_dir)                                                           # 实例化一个数据集
-    dataloader = DataLoader(datafile, batch_size=batch_size, shuffle=True, num_workers=workers, drop_last=True)     # 用PyTorch的DataLoader类封装，实现数据集顺序打乱，多线程读取，一次取多个数据等效果
+    # Dataset instantiation
+    datafile = DVCD('train', dataset_dir) 
+    # Encapsulate using PyTorch's DataLoader class to achieve the disturbing the order of data, 
+    # multi-threaded reading, and fetching multiple data at a time
+    dataloader = DataLoader(datafile, batch_size=batch_size, shuffle=True, num_workers=workers, drop_last=True)     
 
     print('Dataset loaded! length of train set is {0}'.format(len(datafile)))
 
-    model = Net()                       # 实例化一个网络
-    model = model.cuda()                # 网络送入GPU，即采用GPU计算，如果没有GPU加速，可以去掉".cuda()"
+    # Network instantiation
+    model = Net()
+    # Send the network to the GPU to speed up calculations
+    model = model.cuda()
     model = nn.DataParallel(model)
-    model.train()                       # 网络设定为训练模式，有两种模式可选，.train()和.eval()，训练模式和评估模式，区别就是训练模式采用了dropout策略，可以放置网络过拟合
+    
+    # The network is set to training mode
+    # There are two modes to choose from: training mode .train() and evaluation mode .eval()
+    # The difference is training mode uses dropout to prevent network overfitting
+    model.train()
 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)         # 实例化一个优化器，即调整网络参数，优化方式为adam方法
 
