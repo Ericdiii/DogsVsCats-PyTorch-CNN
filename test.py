@@ -9,7 +9,7 @@ import os
 import data
 
 dataset_dir = './data/test/'                    # Dataset path
-model_file = './model/model.pth'                # Model path
+model_file = './model/model_CNN.pth'                # Model path
 N = 10
 
 def test():
