@@ -5,15 +5,15 @@ import numpy as np
 import torch
 import torchvision.transforms as transforms
 
-# 默认输入网络的图片大小
+# Default size of input image
 IMAGE_SIZE = 200
 
-# 定义一个转换关系，用于将图像数据转换成PyTorch的Tensor形式
+# Define a conversion relationship to change image data to Tensor format
 dataTransform = transforms.Compose([
-    transforms.Resize(IMAGE_SIZE),                          # 将图像按比例缩放至合适尺寸
-    transforms.CenterCrop((IMAGE_SIZE, IMAGE_SIZE)),        # 从图像中心裁剪合适大小的图像
-    transforms.ToTensor()   # 转换成Tensor形式，并且数值归一化到[0.0, 1.0]，同时将H×W×C的数据转置成C×H×W，这一点很关键
-])
+    transforms.Resize(IMAGE_SIZE),                          # Resize image and zoom to a suitable size
+    transforms.CenterCrop((IMAGE_SIZE, IMAGE_SIZE)),        # Crop a suitable size from the image center
+    transforms.ToTensor()   # Important point: Convert to Tensor format, normalized to [0.0, 1.0], transpose from (H×W×C) to (C×H×W)
+]) 
 
 
 class DogsVSCatsDataset(data.Dataset):      # 新建一个数据集类，并且需要继承PyTorch中的data.Dataset父类
