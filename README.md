@@ -18,3 +18,12 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 10. **FC1**: First full connected layer, 50×50×16=`40000` input nodes, `128` output nodes, output data is `(128×1)`
 11. **FC2**: Second full connected layer, `128` input nodes, `64` output nodes, output data is `(64×1)`
 12. **FC3**: Third full connected layer, `64` input nodes, `2` output nodes to represent the percentage of cat or dog (Using Softmax method to transform)
+
+## Run
+
+1. Set data directory
+2. **RUN** train.py
+3. **RUN** test.py
+
+##Source##
+https://github.com/xbliuHNU/DogsVsCats
