@@ -32,34 +32,36 @@ class DogsVSCatsDataset(data.Dataset):      # Create a new dataset class, inheri
                 self.data_size += 1                     # Data set size increased by 1
                 name = file.split(sep='.')              # Split the file name: "cat.0.jpg" will be split into "cat", ".", "jpg"
                 
-                # label uses One-Hot encoding, "1,0" means cat, "0,1" means dog, in any case only one position is "1"; 
+                # Label uses One-Hot encoding, "1,0" means cat, "0,1" means dog, in any case only one position is "1"; 
                 # In the case of using CrossEntropyLoss() to calculate Loss, label only needs to enter the index of "1", cat is 0, dog is 1
                 if name[0] == 'cat':
-                    self.list_label.append(0)         # 图片为猫，label为0
+                    self.list_label.append(0)         # Label is 0 when the picture is a cat
                 else:
-                    self.list_label.append(1)         # 图片为狗，label为1，注意：list_img和list_label中的内容是一一配对的
+                    self.list_label.append(1)         # Else, picture is a dog and label is 1. The contents of list_img and list_label are mapping
                     
         # In the test set mode only need to extract the image path            
         elif self.mode == 'test':
-            dir = dir + '/test/'            # 测试集路径为"dir"/test/
+            dir = dir + '/test/'            # The test set path is "dir"/test/
             for file in os.listdir(dir):
-                self.list_img.append(dir + file)    # 添加图片路径至image list
+                self.list_img.append(dir + file)    # Add the path to image list
                 self.data_size += 1
-                self.list_label.append(2)       # 添加2作为label，实际未用到，也无意义
+                self.list_label.append(2)       # No meaningful
         else:
             print('Undefined Dataset!')
-
-    def __getitem__(self, item):            # 重载data.Dataset父类方法，获取数据集中数据内容
-        if self.mode == 'train':                                        # 训练集模式下需要读取数据集的image和label
-            img = Image.open(self.list_img[item])                       # 打开图片
-            label = self.list_label[item]                               # 获取image对应的label
-            return self.transform(img), torch.LongTensor([label])       # 将image和label转换成PyTorch形式并返回
-        elif self.mode == 'test':                                       # 测试集只需读取image
+            
+    # Reload the data.Dataset parent class method to get the content in the dataset
+    def __getitem__(self, item):            
+        if self.mode == 'train':                                        # Read The image and label of the dataset in training set mode
+            img = Image.open(self.list_img[item])                       # Open image
+            label = self.list_label[item]                               # Get the label corresponding to the image
+            return self.transform(img), torch.LongTensor([label])       # Convert image and label into Tensor and return
+        
+        elif self.mode == 'test':                                       # The test set mode only needs to read image
             img = Image.open(self.list_img[item])
-            return self.transform(img)                                  # 只返回image
+            return self.transform(img)                                  # Return image
         else:
             print('None')
 
     def __len__(self):
-        return self.data_size               # 返回数据集大小
+        return self.data_size               # Returns the size of the data set
 
