@@ -6,13 +6,11 @@ from torch.autograd import Variable
 import torch.nn as nn
 
 dataset_dir = './data/'             # Dataset path
-
 model_cp = './model/'               # Save location of network parameters
 workers = 10                        # Number of data thread read by PyTorch 
 batch_size = 16                     # Batch size
 lr = 0.0001                         # Learning rate
 nepoch = 10                         # Number of epoch
-
 
 def train():
     # Dataset instantiation
@@ -66,7 +64,6 @@ def train():
 
     # 训练所有数据后，保存网络的参数
     torch.save(model.state_dict(), '{0}/model.pth'.format(model_cp))            
-
 
 if __name__ == '__main__':
     train()
