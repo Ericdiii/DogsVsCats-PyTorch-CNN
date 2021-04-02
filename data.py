@@ -16,26 +16,31 @@ dataTransform = transforms.Compose([
 ]) 
 
 
-class DogsVSCatsDataset(data.Dataset):      # 新建一个数据集类，并且需要继承PyTorch中的data.Dataset父类
-    def __init__(self, mode, dir):          # 默认构造函数，传入数据集类别（训练或测试），以及数据集路径
+class DogsVSCatsDataset(data.Dataset):      # Create a new dataset class, inherit the data.Dataset parent class in PyTorch
+    def __init__(self, mode, dir):          # Default constructor, incoming dataset category (training or testing), and dataset path        
         self.mode = mode
-        self.list_img = []                  # 新建一个image list，用于存放图片路径，注意是图片路径
-        self.list_label = []                # 新建一个label list，用于存放图片对应猫或狗的标签，其中数值0表示猫，1表示狗
-        self.data_size = 0                  # 记录数据集大小
-        self.transform = dataTransform      # 转换关系
+        self.list_img = []                  # Create a new image list, used to store the image path
+        self.list_label = []                # Create a new label list to store the label of the cat (0) or dog (1) corresponding to the picture
+        self.data_size = 0                  # Record dataset size
+        self.transform = dataTransform      # Conversion relationship
 
-        if self.mode == 'train':            # 训练集模式下，需要提取图片的路径和标签
-            dir = dir + '/train/'           # 训练集路径在"dir"/train/
-            for file in os.listdir(dir):    # 遍历dir文件夹
-                self.list_img.append(dir + file)        # 将图片路径和文件名添加至image list
-                self.data_size += 1                     # 数据集增1
-                name = file.split(sep='.')              # 分割文件名，"cat.0.jpg"将分割成"cat",".","jpg"3个元素
-                # label采用one-hot编码，"1,0"表示猫，"0,1"表示狗，任何情况只有一个位置为"1"，在采用CrossEntropyLoss()计算Loss情况下，label只需要输入"1"的索引，即猫应输入0，狗应输入1
+        # In the training set mode need to be extract the image path and label
+        if self.mode == 'train':
+            dir = dir + '/train/'           # The training set path is in "dir"/train/
+            for file in os.listdir(dir):    # Traverse the dir folder
+                self.list_img.append(dir + file)        # Add the image path and file name to the image list
+                self.data_size += 1                     # Data set size increased by 1
+                name = file.split(sep='.')              # Split the file name: "cat.0.jpg" will be split into "cat", ".", "jpg"
+                
+                # label uses One-Hot encoding, "1,0" means cat, "0,1" means dog, in any case only one position is "1"; 
+                # In the case of using CrossEntropyLoss() to calculate Loss, label only needs to enter the index of "1", cat is 0, dog is 1
                 if name[0] == 'cat':
                     self.list_label.append(0)         # 图片为猫，label为0
                 else:
                     self.list_label.append(1)         # 图片为狗，label为1，注意：list_img和list_label中的内容是一一配对的
-        elif self.mode == 'test':           # 测试集模式下，只需要提取图片路径就行
+                    
+        # In the test set mode only need to extract the image path            
+        elif self.mode == 'test':
             dir = dir + '/test/'            # 测试集路径为"dir"/test/
             for file in os.listdir(dir):
                 self.list_img.append(dir + file)    # 添加图片路径至image list
