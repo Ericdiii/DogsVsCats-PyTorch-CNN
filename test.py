@@ -1,15 +1,12 @@
-from getdata import DogsVSCatsDataset as DVCD
 from network import Net
 import torch
-from torch.autograd import Variable
-import numpy as np
 import torch.nn.functional as F
 import torch.nn as nn
 import matplotlib.pyplot as plt
 from PIL import Image
 import random
 import os
-import getdata
+import data
 
 dataset_dir = './data/test/'                    # Dataset path
 model_file = './model/model.pth'                # Model path
@@ -31,7 +28,7 @@ def test():
     
     for file in files:
         img = Image.open(dataset_dir + file)            # Open image
-        img_data = getdata.dataTransform(img)           # Convert to Tensor data
+        img_data = data.dataTransform(img)              # Convert to Tensor data
 
         imgs.append(img)                                # Image list
         imgs_data.append(img_data)                      # Tensor list
