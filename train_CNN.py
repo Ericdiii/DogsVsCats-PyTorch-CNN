@@ -66,7 +66,7 @@ def train():
             print('Epoch:{0},Frame:{1}, train_loss {2}'.format(epoch, cnt*batch_size, loss/batch_size))          
 
     # Save the network parameters after training all data
-    torch.save(model.state_dict(), '{0}/model.pth'.format(model_cp))            
+    torch.save(model.state_dict(), '{0}/model_CNN.pth'.format(model_cp))            
 
 if __name__ == '__main__':
     train()
