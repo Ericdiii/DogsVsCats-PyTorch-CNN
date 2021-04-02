@@ -1,4 +1,4 @@
-from dataset import CatsVSDogsDataset as CVDD
+from data import DogsVSCatsDataset as DVCD
 from torch.utils.data import DataLoader as DataLoader
 import torch
 from torch.autograd import Variable
@@ -6,7 +6,6 @@ import torch.nn as nn
 import torchvision.models as models
 
 dataset_dir = './data/'
-model_cp = './checkpoint/'
 workers = 10
 batch_size = 16
 lr = 0.0001
@@ -14,7 +13,7 @@ nepoch = 10
 
 
 def train():
-    datafile = CVDD('train', dataset_dir)
+    datafile = DVCD('train', dataset_dir)
     dataloader = DataLoader(datafile, batch_size=batch_size, shuffle=True, num_workers=workers)
 
     print('Dataset loaded! length of train set is {0}'.format(len(datafile)))
