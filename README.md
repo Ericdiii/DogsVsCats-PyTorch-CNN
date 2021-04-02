@@ -29,5 +29,4 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 
 
 ## Source
-https://github.com/xbliuHNU/DogsVsCats</br>
 Author [@xbliuHNU](https://github.com/xbliuHNU)
