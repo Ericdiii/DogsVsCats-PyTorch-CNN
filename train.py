@@ -7,6 +7,7 @@ import torch.nn as nn
 
 dataset_dir = './data/'             # Dataset path
 model_cp = './model/'               # Save location of network parameters
+
 workers = 10                        # Number of data thread read by PyTorch 
 batch_size = 16                     # Batch size
 lr = 0.0001                         # Learning rate
@@ -42,27 +43,29 @@ def train():
     # Number of training images
     cnt = 0             
     for epoch in range(nepoch):
-        # 读取数据集中数据进行训练，因为dataloader的batch_size设置为16，所以每次读取的数据量为16，即img包含了16个图像，label有16个
-        # 循环读取封装后的数据集，其实就是调用了数据集中的__getitem__()方法，只是返回数据格式进行了一次封装
+        # Read the data from dataset. Each time can read 16 images due to the batch_size is set to 16
+        # Loop reading the encapsulated dataset is calling the __getitem__() in the data.py, returning the data format and conduct an encapsulating
         for img, label in dataloader:
-            # 将数据放置在PyTorch的Variable节点中，并送入GPU中作为网络计算起点
+            # Place the data in the Variable node of PyTorch and send it to the GPU as the starting point for network calculations
             img, label = Variable(img).cuda(), Variable(label).cuda()
-            # 计算网络输出值，就是输入网络一个图像数据，输出猫和狗的概率，调用了网络中的forward()方法
+            # Calculate the network output value: Input image data, call forward() to output the probability of cat or dog
             out = model(img)
-            # 计算损失，也就是网络输出值和实际label的差异，显然差异越小说明网络拟合效果越好，此处需要注意的是第二个参数，必须是一个1维Tensor
+            # Calculate the loss. The second parameter must be a 1-dimensional Tensor
             loss = criterion(out, label.squeeze())
-            # 误差反向传播，采用求导的方式，计算网络中每个节点参数的梯度，显然梯度越大说明参数设置不合理，需要调整
+            # Back propagation: Calculate the gradient of each node by derivation
+            # The larger the gradient, the unreasonable parameter setting and need to be adjusted
             loss.backward()
-            # 优化采用设定的优化方法对网络中的各个参数进行调整
-            optimizer.step()                            
+            # Optimize by adjusting the parameters
+            optimizer.step()
+            # Clear the gradient in the optimizer for the next calculation
             optimizer.zero_grad()
-            # 清除优化器中的梯度以便下一次计算，因为优化器默认会保留，不清除的话，每次计算梯度都回累加
+            
             cnt += 1
 
-            # 打印一个batch size的训练结果
+            # Print the training results of each batch size
             print('Epoch:{0},Frame:{1}, train_loss {2}'.format(epoch, cnt*batch_size, loss/batch_size))          
 
-    # 训练所有数据后，保存网络的参数
+    # Save the network parameters after training all data
     torch.save(model.state_dict(), '{0}/model.pth'.format(model_cp))            
 
 if __name__ == '__main__':
