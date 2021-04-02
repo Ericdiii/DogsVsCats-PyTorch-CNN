@@ -5,7 +5,8 @@ Algorithm competition organized by Kaggle, used for PyTorch initial study
 Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 
 ## Convolutional network design
-![CNN](https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/CNN.png)
+<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/CNN.png" height="300"/>
+
 1. **Input**: Adjust image to `200×200` pixels
 2. **ConV1**: The scale of convolutional core is `(3×3×3×16)`, hight=`3`, width=`3`, #layer=`3`, #filters=`16`
 3. **Result of first convolution**: `(200×200×16)` feature map
