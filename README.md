@@ -26,4 +26,5 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 3. **RUN** test.py
 
 ## Source
-Authur:[@xbliuHNU](https://github.com/xbliuHNU)https://github.com/xbliuHNU/DogsVsCats
+(https://github.com/xbliuHNU)https://github.com/xbliuHNU/DogsVsCats
+Authur [@xbliuHNU]
