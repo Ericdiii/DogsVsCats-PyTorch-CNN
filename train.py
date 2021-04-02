@@ -5,13 +5,13 @@ import torch
 from torch.autograd import Variable
 import torch.nn as nn
 
-dataset_dir = './data/'                                                  # 数据集路径
+dataset_dir = './data/'             # Dataset path
 
-model_cp = './model/'               # 网络参数保存位置
-workers = 10                        # PyTorch读取数据线程数量
-batch_size = 16                     # batch_size大小
-lr = 0.0001                         # 学习率
-nepoch = 10
+model_cp = './model/'               # Save location of network parameters
+workers = 10                        # Number of data thread read by PyTorch 
+batch_size = 16                     # Batch size
+lr = 0.0001                         # Learning rate
+nepoch = 10                         # Number of epoch
 
 
 def train():
