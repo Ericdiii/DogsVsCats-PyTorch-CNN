@@ -1,4 +1,4 @@
-from getdata import DogsVSCatsDataset as DVCD
+from data import DogsVSCatsDataset as DVCD
 from torch.utils.data import DataLoader as DataLoader
 from network import Net
 import torch
