@@ -24,7 +24,7 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 
 1. Set data directory
 2. **RUN** train_CNN.py
-3. **RUN** test.py</br>
+3. **RUN** test_CNN.py</br>
 <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png" height="260"/> <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png" height="260"/> 
 
 
