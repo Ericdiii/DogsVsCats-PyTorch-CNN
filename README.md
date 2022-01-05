@@ -1,5 +1,6 @@
 # DogsVsCats
-Algorithm competition organized by Kaggle, used for PyTorch initial study
+Kaggle Algorithm competition topic </br>
+It's a good practice for studying CNN and PyTorch :)
 
 ## Dataset
 Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
