@@ -22,7 +22,7 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 
 ## Usage
 
-1. Set data directory
+1. Download the dataset
 2. Train the image classification model
 ```sh
 train_CNN.py
