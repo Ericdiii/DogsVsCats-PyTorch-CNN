@@ -6,7 +6,7 @@ It's a good practice for studying CNN and PyTorch :)
 Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 
 ## Convolutional network design
-<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/CNN.png" height="270"/>
+<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/CNN.png" height="260"/>
 
 1. **Input**: Adjust image to `200×200` pixels
 2. **ConV1**: The scale of convolutional core is `(3×3×3×16)`, hight=`3`, width=`3`, #layer=`3`, #filters=`16`
@@ -33,7 +33,7 @@ train_CNN.py
 test_CNN.py
 ```
 
-<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png" height="260"/> <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png" height="260"/> 
+<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png" height="260"/> <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png" height="280"/> 
 
 
 ## References
