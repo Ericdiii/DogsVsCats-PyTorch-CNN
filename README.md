@@ -1,4 +1,4 @@
-# DogsVsCats
+# Dogs Vs Cats
 Kaggle algorithm competition topic </br>
 It's a good practice for studying CNN and PyTorch :)
 
