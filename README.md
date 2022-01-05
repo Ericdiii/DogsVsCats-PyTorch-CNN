@@ -20,14 +20,21 @@ Provided from Microsoft Research: https://www.kaggle.com/c/dogs-vs-cats/data
 11. **FC2**: Second full connected layer, `128` input nodes, `64` output nodes, output data is `(64×1)`
 12. **FC3**: Third full connected layer, `64` input nodes, `2` output nodes to represent the percentage of cat or dog (using Softmax method to convert)
 
-## Run
+## Usage
 
 1. Set data directory
-2. **RUN** train_CNN.py
-3. **RUN** test_CNN.py</br>
+2. Train the image classification model
+```sh
+train_CNN.py
+```
+3. Test the trained model
+```sh
+test_CNN.py</br>
+```
+
 <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png" height="260"/> <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png" height="260"/> 
 
 
 ## Source
-**DogsVsCats** https://github.com/xbliuHNU/DogsVsCats</br>
-**DogsVsCats-ResNet18** https://github.com/xbliuHNU/DogsVsCats-ResNet18
+- **DogsVsCats** https://github.com/xbliuHNU/DogsVsCats</br>
+- **DogsVsCats-ResNet18** https://github.com/xbliuHNU/DogsVsCats-ResNet18
