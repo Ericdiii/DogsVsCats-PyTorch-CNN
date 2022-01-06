@@ -33,7 +33,7 @@ train_CNN.py
 test_CNN.py
 ```
 
-<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png" height="260"/> <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png" height="280"/> 
+<img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput1.png" height="280"/> <img src="https://github.com/Ericdiii/DogsVsCats-PyTorch-CNN/blob/main/TestOutput2.png" height="280"/> 
 
 
 ## References
